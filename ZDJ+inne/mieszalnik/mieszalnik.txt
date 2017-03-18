@@ -1,0 +1,23 @@
+Urz¹dzenia wejœcia: 
+
+- czujnik cmin 
+- czujnik cs 
+- czujnik CMAX 
+- start button 
+- stop button 
+
+Urz¹dzenia wyjscia: 
+
+- mieszalnik 
+- spust 
+- zawór 1 
+- zawór 2 
+
+#arg nie wejdzie [symuluje program]: 
+- lampka z butona 1 
+- lampka z butona 2 
+
+- lampki z czujników 
+- koontrolka silnika 
+
+

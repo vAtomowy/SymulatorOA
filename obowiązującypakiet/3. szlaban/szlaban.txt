@@ -1,0 +1,17 @@
+Urz¹dzenia wejœcia: 
+
+- czujnik Cp  
+- czujnik Co 
+- czujnik Ch 
+- czujnik Cv 
+- pilot [RC]
+
+
+Urz¹dzenia wyjscia: 
+
+- kirunek [silnika]  
+- motor   [za³/wy³] 
+- lmpka    
+- No - za³¹czenie bariery
+
+

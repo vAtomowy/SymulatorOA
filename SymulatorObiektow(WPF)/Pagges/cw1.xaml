@@ -1,0 +1,66 @@
+﻿<Page x:Class="SymulatorObiektow_WPF_.Pagges.cw1"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SymulatorObiektow_WPF_.Pagges"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="800"
+      Title="cw1"
+      xmlns:my="clr-namespace:SymulatorObiektow_WPF_.Controls">
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/gitesmajonez.png"/>
+        </Grid.Background>
+        <Slider x:Name="pot" HorizontalAlignment="Left" Margin="601,281,0,0" VerticalAlignment="Top" Height="25" Width="141" Minimum="0" Maximum="255" ValueChanged="pot_ValueChanged" TickFrequency="1" IsSnapToTickEnabled="True" />
+        <Label x:Name="pot_status" Content="0" HorizontalAlignment="Left" Margin="601,311,0,0" VerticalAlignment="Top" Width="141" Height="30"/>
+        <my:Lamp x:Name="Lamp1" Margin="154,514,597,36"/>
+        <my:Lamp x:Name="Lamp2" Margin="288,526,463,24"/>
+        <my:Lamp x:Name="Lamp3" Margin="428,526,323,24"/>
+        <my:Lamp x:Name="Lamp4" Margin="574,526,177,24"/>
+        <my:SwitchButton
+            IsChecked="True"
+            IsEnabled="True"
+            EnabledChecked="pack://application:,,,/g2994_clicked.png"
+            EnabledUnchecked="pack://application:,,,/g2994.png"
+            DisabledUnchecked="pack://application:,,,/g2994.png" Margin="64,35,687,516" x:Name="B1" Click="B1_Click" />
+        <my:SwitchButton
+            IsChecked="True"
+            IsEnabled="True"
+            EnabledChecked="/SymulatorObiektow(WPF);component/g2994_clicked.png"
+            EnabledUnchecked="/SymulatorObiektow(WPF);component/g2994.png"
+            DisabledUnchecked="/SymulatorObiektow(WPF);component/g2994.png" Margin="187,35,564,516" x:Name="B2" Click="B2_Click"/>
+        <my:SwitchButton
+            IsChecked="True"
+            IsEnabled="True"
+            EnabledChecked="/SymulatorObiektow(WPF);component/g2994_clicked.png"
+            EnabledUnchecked="/SymulatorObiektow(WPF);component/g2994.png"
+            DisabledUnchecked="/SymulatorObiektow(WPF);component/g2994.png" Margin="304,35,447,516" x:Name="B3" Click="B3_Click"/>
+        <my:SwitchButton
+            IsChecked="True"
+            IsEnabled="True"
+            EnabledChecked="/SymulatorObiektow(WPF);component/g2994_clicked.png"
+            EnabledUnchecked="/SymulatorObiektow(WPF);component/g2994.png"
+            DisabledUnchecked="/SymulatorObiektow(WPF);component/g2994.png" Margin="418,35,333,516" x:Name="B4" Click="B4_Click"/>
+        <my:SwitchButton
+            IsChecked="True"
+            IsEnabled="True"
+            EnabledChecked="/SymulatorObiektow(WPF);component/g2994_clicked.png"
+            EnabledUnchecked="/SymulatorObiektow(WPF);component/g2994.png"
+            DisabledUnchecked="/SymulatorObiektow(WPF);component/g2994.png" Margin="521,35,230,516" x:Name="B5" Click="B5_Click"/>
+        <my:SwitchButton
+            IsChecked="True"
+            IsEnabled="True"
+            EnabledChecked="/SymulatorObiektow(WPF);component/g2994_clicked.png"
+            EnabledUnchecked="/SymulatorObiektow(WPF);component/g2994.png"
+            DisabledUnchecked="/SymulatorObiektow(WPF);component/g2994.png" Margin="626,35,125,516" x:Name="B6" Click="B6_Click"/>
+        <my:SwitchButton
+            IsChecked="True"
+            IsEnabled="True"
+            EnabledChecked="/SymulatorObiektow(WPF);component/g2994_clicked.png"
+            EnabledUnchecked="/SymulatorObiektow(WPF);component/g2994.png"
+            DisabledUnchecked="/SymulatorObiektow(WPF);component/g2994.png" Margin="724,35,27,516" x:Name="B7" Click="B7_Click"/>
+
+    </Grid>
+</Page>

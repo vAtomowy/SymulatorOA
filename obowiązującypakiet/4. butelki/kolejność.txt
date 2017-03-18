@@ -1,0 +1,25 @@
+STOP 
+W1 
+W2 
+W3 
+CB 
+S1 
+S2 
+MSTART 
+CB2 
+S11 
+S12 
+MSTART2 
+CB3   
+S111 
+S112 
+MSTART3 
+----> pêtla 
+CBk 
+S1k 
+S2k  
+Sk3
+MSTARTk  
+---------petla powtórz 
+
+

@@ -1,0 +1,20 @@
+﻿<Page x:Class="SymulatorObiektow_WPF_.Pagges.cw3"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SymulatorObiektow_WPF_.Pagges"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="800"
+      Title="cw3">
+
+    <Grid Width="800" Height="600" x:Name="Container">
+        <Image x:Name="BG_Image">
+            <Image.Source>pack://siteoforigin:,,,/Resources/DD[1].png</Image.Source>
+        </Image>
+        <Button x:Name="b_BigButton" Content="" HorizontalAlignment="Left" Margin="675,454,0,0" VerticalAlignment="Top" Width="16" Height="16" Click="b_BigButton_Click"/>
+        <Button x:Name="b_info" Content="Info" HorizontalAlignment="Left" Margin="652,52,0,0" VerticalAlignment="Top" Width="75" Click="b_info_Click"/>
+        <Button x:Name="b_brumbrum" Content="Samochód" HorizontalAlignment="Left" Margin="643,187,0,0" VerticalAlignment="Top" Width="84" Height="33"/>
+
+    </Grid>
+</Page>
