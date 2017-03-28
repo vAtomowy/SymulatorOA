@@ -13,11 +13,11 @@
         <Image x:Name="state_img" HorizontalAlignment="Left" Height="450" VerticalAlignment="Top" Width="556" Source="pack://siteoforigin:,,,/Resources/M1.png"/>
         <Image x:Name="controls" Height="450" Margin="556,0,0,150" Source="pack://siteoforigin:,,,/Resources/sens.png"/>
         <Image x:Name="conn" Height="150" Margin="0,450,0,0" Width="800" Source="pack://siteoforigin:,,,/Resources/CONN.png"/>
-        <Image x:Name="image" HorizontalAlignment="Left" Height="49" Margin="583,334,0,0" VerticalAlignment="Top" Width="49" Source="pack://siteoforigin:,,,/Resources/lamp2_off.png"/>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="49" Margin="583,334,0,0" VerticalAlignment="Top" Width="49" Source="pack://siteoforigin:,,,/Resources/lamp_r_off.png"/>
         <Button x:Name="b_Start" Content="START" HorizontalAlignment="Left" Margin="712,493,0,0" VerticalAlignment="Top" Width="75"/>
         <Button x:Name="b_Stop" Content="STOP" HorizontalAlignment="Left" Margin="712,529,0,0" VerticalAlignment="Top" Width="75"/>
-        <Image x:Name="image_Copy" HorizontalAlignment="Left" Height="49" Margin="583,215,0,0" VerticalAlignment="Top" Width="49" Source="pack://siteoforigin:,,,/Resources/Lamp_off.png"/>
-        <Image x:Name="image_Copy1" HorizontalAlignment="Left" Height="49" Margin="583,131,0,0" VerticalAlignment="Top" Width="49" Source="pack://siteoforigin:,,,/Resources/Lamp_off.png"/>
-        <Image x:Name="image_Copy2" HorizontalAlignment="Left" Height="49" Margin="583,55,0,0" VerticalAlignment="Top" Width="49" Source="pack://siteoforigin:,,,/Resources/Lamp_off.png"/>
+        <Image x:Name="image_Copy" HorizontalAlignment="Left" Height="49" Margin="583,215,0,0" VerticalAlignment="Top" Width="49" Source="pack://siteoforigin:,,,/Resources/Lamp_y_off.png"/>
+        <Image x:Name="image_Copy1" HorizontalAlignment="Left" Height="49" Margin="583,131,0,0" VerticalAlignment="Top" Width="49" Source="pack://siteoforigin:,,,/Resources/Lamp_y_off.png"/>
+        <Image x:Name="image_Copy2" HorizontalAlignment="Left" Height="49" Margin="583,55,0,0" VerticalAlignment="Top" Width="49" Source="pack://siteoforigin:,,,/Resources/Lamp_y_off.png"/>
     </Grid>
 </Page>

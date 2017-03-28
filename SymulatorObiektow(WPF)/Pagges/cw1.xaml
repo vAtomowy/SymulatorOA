@@ -7,7 +7,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="800"
       Title="cw1"
-      xmlns:my="clr-namespace:SymulatorObiektow_WPF_.Controls">
+      xmlns:my="clr-namespace:SymulatorObiektow_WPF_.Controls" Unloaded="Page_Unloaded">
 
     <Grid>
         <Grid.Background>

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Threading;
 
 namespace SymulatorObiektow_WPF_.Pagges
 {
@@ -31,19 +32,74 @@ namespace SymulatorObiektow_WPF_.Pagges
 
         byte UI_state = 0;
 
+        CancellationTokenSource task_token;
+
+        bool tok = false;
+
         public cw1()
         {
             InitializeComponent();
+            LampsChange(false, false, false, false);
+            task_token = new CancellationTokenSource();
+            Process(task_token.Token);
         }
 
-        private void LampChange(Controls.Lamp lamp, bool on)
+        private async void Process(CancellationToken token)
+        {
+            try
+            {
+                await Task.Run(() =>
+                {
+                    for(;;)
+                    {
+                        Application.Current.Dispatcher.Invoke(new Action(() => Update()));
+                        Console.WriteLine("DONE");
+                        Thread.Sleep(30);
+                        if (tok)
+                            break;
+                    }
+                });
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void LampsChange(bool lamp1, bool lamp2, bool lamp3, bool lamp4)
+        {
+            LampChange(this.Lamp1, lamp1, 1);
+            LampChange(this.Lamp2, lamp2, 2);
+            LampChange(this.Lamp3, lamp3, 0);
+            LampChange(this.Lamp4, lamp4, 0);
+        }
+
+        private void LampChange(Controls.Lamp lamp, bool on, int num)
         {
             lamp.imge.BeginInit();
-            
-            if(on)
-                lamp.imge.Source = new BitmapImage(new Uri("/Resources/Lamp_on.png", UriKind.RelativeOrAbsolute));
+
+            if (on)
+            {
+                Console.WriteLine(num + " lamp on");
+                if(num == 0)
+                    lamp.imge.Source = new BitmapImage(new Uri("/Resources/Lamp_y_on.png", UriKind.RelativeOrAbsolute));
+                else if(num == 1)
+                    lamp.imge.Source = new BitmapImage(new Uri("/Resources/Lamp_g_on.png", UriKind.RelativeOrAbsolute));
+                else if(num == 2)
+                    lamp.imge.Source = new BitmapImage(new Uri("/Resources/Lamp_r_on.png", UriKind.RelativeOrAbsolute));
+
+            }
             else
-                lamp.imge.Source = new BitmapImage(new Uri("/Resources/Lamp_off.png", UriKind.RelativeOrAbsolute));
+            {
+                Console.WriteLine(num + " lamp off");
+                if (num == 0)
+                    lamp.imge.Source = new BitmapImage(new Uri("/Resources/Lamp_y_off.png", UriKind.RelativeOrAbsolute));
+                else if (num == 1)
+                    lamp.imge.Source = new BitmapImage(new Uri("/Resources/Lamp_g_off.png", UriKind.RelativeOrAbsolute));
+                else if (num == 2)
+                    lamp.imge.Source = new BitmapImage(new Uri("/Resources/Lamp_r_off.png", UriKind.RelativeOrAbsolute));
+
+            }
 
             lamp.imge.EndInit();
         }
@@ -52,7 +108,7 @@ namespace SymulatorObiektow_WPF_.Pagges
         {
             Property.Device.Send_Data(msg1);
             Property.Device.Send_Data(msg2);
-
+            
             UI_state = Property.Device.recived_data;
 
             Console.WriteLine("Buttons: " + msg1);
@@ -62,101 +118,52 @@ namespace SymulatorObiektow_WPF_.Pagges
             switch(UI_state)
             {
                 case 0:
-                    LampChange(this.Lamp1, false);
-                    LampChange(this.Lamp2, false);
-                    LampChange(this.Lamp3, false);
-                    LampChange(this.Lamp4, false);
+                    LampsChange(false, false, false, false);
                     break;
                 case 1:
-                    LampChange(this.Lamp1, true);
-                    LampChange(this.Lamp2, false);
-                    LampChange(this.Lamp3, false);
-                    LampChange(this.Lamp4, false);
+                    LampsChange(true, false, false, false);
                     break;
-
                 case 2:
-                    LampChange(this.Lamp1, false);
-                    LampChange(this.Lamp2, true);
-                    LampChange(this.Lamp3, false);
-                    LampChange(this.Lamp4, false);
+                    LampsChange(false, true, false, false);
                     break;
                 case 3:
-                    LampChange(this.Lamp1, true);
-                    LampChange(this.Lamp2, true);
-                    LampChange(this.Lamp3, false);
-                    LampChange(this.Lamp4, false);
+                    LampsChange(true, true, false, false);
                     break;
                 case 4:
-                    LampChange(this.Lamp1, false);
-                    LampChange(this.Lamp2, false);
-                    LampChange(this.Lamp3, true);
-                    LampChange(this.Lamp4, false);
+                    LampsChange(false, false, true, false);
                     break;
                 case 5:
-                    LampChange(this.Lamp1, true);
-                    LampChange(this.Lamp2, false);
-                    LampChange(this.Lamp3, true);
-                    LampChange(this.Lamp4, false);
+                    LampsChange(true, false, true, false);
                     break;
                 case 6:
-                    LampChange(this.Lamp1, false);
-                    LampChange(this.Lamp2, true);
-                    LampChange(this.Lamp3, true);
-                    LampChange(this.Lamp4, false);
+                    LampsChange(false, true, true, false);
                     break;
                 case 7:
-                    LampChange(this.Lamp1, true);
-                    LampChange(this.Lamp2, true);
-                    LampChange(this.Lamp3, true);
-                    LampChange(this.Lamp4, false);
+                    LampsChange(true, true, true, false);
                     break;
                 case 8:
-                    LampChange(this.Lamp1, false);
-                    LampChange(this.Lamp2, false);
-                    LampChange(this.Lamp3, false);
-                    LampChange(this.Lamp4, true);
+                    LampsChange(false, false, false, true);
                     break;
                 case 9:
-                    LampChange(this.Lamp1, true);
-                    LampChange(this.Lamp2, false);
-                    LampChange(this.Lamp3, false);
-                    LampChange(this.Lamp4, true);
+                    LampsChange(true, false, false, true);
                     break;
                 case 10:
-                    LampChange(this.Lamp1, false);
-                    LampChange(this.Lamp2, true);
-                    LampChange(this.Lamp3, false);
-                    LampChange(this.Lamp4, true);
+                    LampsChange(false, true, false, true);
                     break;
                 case 11:
-                    LampChange(this.Lamp1, true);
-                    LampChange(this.Lamp2, true);
-                    LampChange(this.Lamp3, false);
-                    LampChange(this.Lamp4, true);
+                    LampsChange(true, true, false, true);
                     break;
                 case 12:
-                    LampChange(this.Lamp1, false);
-                    LampChange(this.Lamp2, false);
-                    LampChange(this.Lamp3, true);
-                    LampChange(this.Lamp4, true);
+                    LampsChange(false, false, true, true);
                     break;
                 case 13:
-                    LampChange(this.Lamp1, true);
-                    LampChange(this.Lamp2, false);
-                    LampChange(this.Lamp3, true);
-                    LampChange(this.Lamp4, true);
+                    LampsChange(true, false, true, true);
                     break;
                 case 14:
-                    LampChange(this.Lamp1, false);
-                    LampChange(this.Lamp2, true);
-                    LampChange(this.Lamp3, true);
-                    LampChange(this.Lamp4, true);
+                    LampsChange(false, true, true, true);
                     break;
                 case 15:
-                    LampChange(this.Lamp1, true);
-                    LampChange(this.Lamp2, true);
-                    LampChange(this.Lamp3, true);
-                    LampChange(this.Lamp4, true);
+                    LampsChange(true, true, true, true);
                     break;
             }
         }
@@ -166,7 +173,6 @@ namespace SymulatorObiektow_WPF_.Pagges
 
             msg2 = (byte)this.pot.Value;
             this.pot_status.Content = this.pot.Value;
-            Update();
             
             //if(this.pot.Value == 255)
             //{
@@ -188,7 +194,6 @@ namespace SymulatorObiektow_WPF_.Pagges
                 msg1 += 1;
             else
                 msg1 -= 1;
-            Update();
         }
 
         private void B2_Click(object sender, RoutedEventArgs e)
@@ -197,7 +202,6 @@ namespace SymulatorObiektow_WPF_.Pagges
                 msg1 += 2;
             else
                 msg1 -= 2;
-            Update();
         }
 
         private void B3_Click(object sender, RoutedEventArgs e)
@@ -206,7 +210,6 @@ namespace SymulatorObiektow_WPF_.Pagges
                 msg1 += 4;
             else
                 msg1 -= 4;
-            Update();
         }
 
         private void B4_Click(object sender, RoutedEventArgs e)
@@ -215,7 +218,6 @@ namespace SymulatorObiektow_WPF_.Pagges
                 msg1 += 8;
             else
                 msg1 -= 8;
-            Update();
         }
 
         private void B5_Click(object sender, RoutedEventArgs e)
@@ -224,7 +226,6 @@ namespace SymulatorObiektow_WPF_.Pagges
                 msg1 += 16;
             else
                 msg1 -= 16;
-            Update();
         }
 
         private void B6_Click(object sender, RoutedEventArgs e)
@@ -233,7 +234,6 @@ namespace SymulatorObiektow_WPF_.Pagges
                 msg1 += 32;
             else
                 msg1 -= 32;
-            Update();
         }
 
         private void B7_Click(object sender, RoutedEventArgs e)
@@ -242,7 +242,13 @@ namespace SymulatorObiektow_WPF_.Pagges
                 msg1 += 64;
             else
                 msg1 -= 64;
-            Update();
+        }
+
+        private void Page_Unloaded(object sender, RoutedEventArgs e)
+        {
+            task_token.Cancel();
+            tok = true;
+            Console.WriteLine("Koniec");
         }
     }
 }

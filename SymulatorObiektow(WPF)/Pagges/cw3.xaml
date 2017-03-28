@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:SymulatorObiektow_WPF_.Pagges"
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="800"
-      Title="cw3">
+      Title="cw3" Unloaded="Page_Unloaded">
 
     <Grid Width="800" Height="600" x:Name="Container">
         <Image x:Name="BG_Image">
@@ -14,7 +14,7 @@
         </Image>
         <Button x:Name="b_BigButton" Content="" HorizontalAlignment="Left" Margin="675,454,0,0" VerticalAlignment="Top" Width="16" Height="16" Click="b_BigButton_Click"/>
         <Button x:Name="b_info" Content="Info" HorizontalAlignment="Left" Margin="652,52,0,0" VerticalAlignment="Top" Width="75" Click="b_info_Click"/>
-        <Button x:Name="b_brumbrum" Content="Samochód" HorizontalAlignment="Left" Margin="643,187,0,0" VerticalAlignment="Top" Width="84" Height="33"/>
+        <Button x:Name="b_brumbrum" Content="Samochód" HorizontalAlignment="Left" Margin="643,187,0,0" VerticalAlignment="Top" Width="84" Height="33" Click="b_brumbrum_Click"/>
 
     </Grid>
 </Page>
